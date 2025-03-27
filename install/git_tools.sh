@@ -1,7 +1,8 @@
 #!/bin/bash
 source ./utils.sh
 
-log_info "Clonando repositórios Git..."
+log_info "Cloning tools from GitHub..."
+
 repos=(
     "https://github.com/gwen001/github-search"
     "https://github.com/GerbenJavado/LinkFinder.git"
@@ -19,9 +20,13 @@ repos=(
 for repo in "${repos[@]}"; do
     dir=$(basename "$repo" .git)
     if [ ! -d "$dir" ]; then
-        log_info "Clonando $dir..."
-        git clone "$repo"
+        log_info "Cloning $dir..."
+        if git clone "$repo"; then
+            log_success "Cloned $dir"
+        else
+            log_error "Failed to clone $dir"
+        fi
     else
-        log_info "Repositório $dir já existe. Pulando."
+        log_info "Directory $dir already exists, skipping clone."
     fi
 done

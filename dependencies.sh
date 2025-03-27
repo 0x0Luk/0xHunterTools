@@ -2,7 +2,7 @@
 source ./utils.sh
 
 log_info "Verificando dependências..."
-deps=(go git python3 pip pipx cargo curl)
+deps=(golang-go git python3 pip pipx cargo curl)
 for dep in "${deps[@]}"; do
     if ! command -v "$dep" >/dev/null 2>&1; then
         log_info "Instalando dependência: $dep"

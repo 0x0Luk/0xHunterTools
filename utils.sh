@@ -11,7 +11,7 @@ log_success() { echo -e "${GREEN}[+] $1${NC}"; }
 log_error()   { echo -e "${RED}[!] $1${NC}"; }
 
 print_banner() {
-  echo -e "${BLUE}"
+  echo -e "${RED}"
   cat << "EOF"
 
    ___       _    _             _         _______          _     
