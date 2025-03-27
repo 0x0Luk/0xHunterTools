@@ -42,7 +42,7 @@ go_tools=(
 
 for tool in "${go_tools[@]}"; do
     log_info "Instalando $tool"
-    if go install -v "$tool"; then
+    if go install "$tool"; then
         log_success "Sucesso: $tool"
     else
         log_error "Erro ao instalar $tool"
